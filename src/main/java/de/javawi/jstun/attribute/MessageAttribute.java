@@ -50,6 +50,7 @@ public abstract class MessageAttribute implements MessageAttributeInterface {
 		if (type == MessageAttributeType.UnknownAttribute) return UNKNOWNATTRIBUTE;
 		if (type == MessageAttributeType.ReflectedFrom) return REFLECTEDFROM;
 		if (type == MessageAttributeType.Dummy) return DUMMY;
+		if (type == MessageAttributeType.XorMappedAddress) return XORMAPPEDADDRESS;
 		return -1;
 	}
 	
@@ -66,6 +67,7 @@ public abstract class MessageAttribute implements MessageAttributeInterface {
 		if (type == UNKNOWNATTRIBUTE) return MessageAttributeType.UnknownAttribute;
 		if (type == REFLECTEDFROM) return MessageAttributeType.ReflectedFrom;
 		if (type == DUMMY) return MessageAttributeType.Dummy;
+		if (type == XORMAPPEDADDRESS) return MessageAttributeType.XorMappedAddress;
 		return null;
 	}
 	
@@ -100,6 +102,8 @@ public abstract class MessageAttribute implements MessageAttributeInterface {
 			case ERRORCODE: ma = ErrorCode.parse(valueArray); break;
 			case UNKNOWNATTRIBUTE: ma = UnknownAttribute.parse(valueArray); break;
 			case REFLECTEDFROM: ma = ReflectedFrom.parse(valueArray); break;
+			case XORMAPPEDADDRESS: ma = XorMappedAddress.parse(valueArray); break;
+
 			default:
 				if (type <= 0x7fff) {
 					throw new UnknownMessageAttributeException("Unkown mandatory message attribute", intToType(type));

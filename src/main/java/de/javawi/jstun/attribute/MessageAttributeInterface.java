@@ -12,7 +12,7 @@
 package de.javawi.jstun.attribute;
 
 public interface MessageAttributeInterface {
-	public enum MessageAttributeType { MappedAddress, ResponseAddress, ChangeRequest, SourceAddress, ChangedAddress, Username, Password, MessageIntegrity, ErrorCode, UnknownAttribute, ReflectedFrom, Dummy };
+	public enum MessageAttributeType { MappedAddress, ResponseAddress, ChangeRequest, SourceAddress, ChangedAddress, Username, Password, MessageIntegrity, ErrorCode, UnknownAttribute, ReflectedFrom, Dummy, XorMappedAddress };
 	final static int MAPPEDADDRESS = 0x0001;
 	final static int RESPONSEADDRESS = 0x0002;
 	final static int CHANGEREQUEST = 0x0003;
@@ -24,5 +24,6 @@ public interface MessageAttributeInterface {
 	final static int ERRORCODE = 0x0009;
 	final static int UNKNOWNATTRIBUTE = 0x000a;
 	final static int REFLECTEDFROM = 0x000b;
+	final static int XORMAPPEDADDRESS = 0x0020;
 	final static int DUMMY = 0x0000;
 }
